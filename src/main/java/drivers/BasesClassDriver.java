@@ -26,6 +26,10 @@ public class BasesClassDriver {
     }
 
     public String getProperty(String key) {
+        String envOverride = System.getenv(key.equals("baseUrl") ? "BASE_URL" : key);
+        if (envOverride != null && !envOverride.isBlank()) {
+            return envOverride;
+        }
         return properties.getProperty(environment + "." + key);
     }
 
@@ -43,7 +47,7 @@ public class BasesClassDriver {
 //                    driver = MyFirefoxDriver.firefoxHisBrowserWeb().onTheUrl(baseUrl);
 //                    break;
                 default:
-                    throw new IllegalArgumentException("Navegador no soportado: " + browser);
+                    throw new IllegalArgumentException("Unsupported browser: " + browser);
             }
         }
     }

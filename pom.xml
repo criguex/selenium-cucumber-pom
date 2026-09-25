@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>sele_guer</artifactId>
+    <groupId>io.github.criguex</groupId>
+    <artifactId>selenium-cucumber-pom</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -19,13 +19,6 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>7.21.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.12.0</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -45,13 +38,6 @@
             <groupId>net.masterthought</groupId>
             <artifactId>maven-cucumber-reporting</artifactId>
             <version>5.8.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.10.1</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -77,7 +63,7 @@
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
                     <includes>
-                        <include>**/*.java</include>
+                        <include>**/Runner*.java</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -93,7 +79,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>selenium_project</projectName>
+                            <projectName>selenium-cucumber-pom</projectName>
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
