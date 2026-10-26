@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="540" viewBox="0 0 1280 540">
+<defs>
+<pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#55DFBD" stroke-opacity=".06" stroke-width="1"/></pattern>
+<clipPath id="c"><rect width="1280" height="540" rx="20"/></clipPath>
+<marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#55DFBD"/></marker>
+<marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FB8176"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FFC56E"/></marker>
+</defs>
+<g clip-path="url(#c)"><rect width="1280" height="540" fill="#071B2B"/><rect width="1280" height="540" fill="url(#g)"/><rect x="0" y="0" width="8" height="540" fill="#55DFBD"/></g>
+<text x="48" y="56" font-family="Menlo,Consolas,monospace" font-size="13" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="2.5" xml:space="preserve">SELENIUM-CUCUMBER-POM · HOW IT WORKS</text>
+<text x="48" y="92" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="28" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">From Gherkin to the shadow DOM</text>
+<text x="48" y="120" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">Selenium 4.29 · Cucumber 7 · Page Object Model · Java 17 · credentials and URL from environment variables</text>
+<rect x="48" y="146" width="217" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="64" y="170" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">features/</text>
+<text x="64" y="194" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Features</text>
+<text x="64" y="219" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">Login.feature</text>
+<text x="64" y="238" font-family="Menlo,Consolas,monospace" font-size="12.5" xml:space="preserve"><tspan fill="#F4F7F5">3 steps · implemented</tspan></text>
+<text x="64" y="257" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">Register.feature</text>
+<text x="64" y="276" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" xml:space="preserve"><tspan fill="#FFC56E" font-weight="bold">!</tspan><tspan fill="#F4F7F5"> 2 of 4 steps pending</tspan></text>
+<rect x="290" y="146" width="217" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="306" y="170" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">runners/</text>
+<text x="306" y="194" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Runners</text>
+<text x="306" y="219" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">RunnerLogin</text>
+<text x="306" y="238" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">RunnerRegister</text>
+<text x="306" y="257" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">@RunWith(Cucumber)</text>
+<rect x="532" y="146" width="217" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="548" y="170" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">stepdefinitions/</text>
+<text x="548" y="194" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Step definitions</text>
+<text x="548" y="219" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">login/</text>
+<text x="548" y="238" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">register/</text>
+<text x="548" y="257" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">@After → driver.quit()</text>
+<rect x="774" y="146" width="217" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="790" y="170" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">pages/</text>
+<text x="790" y="194" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Page Objects</text>
+<text x="790" y="219" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">LoginPage</text>
+<text x="790" y="238" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">HomePage</text>
+<text x="790" y="257" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">CreateCostumerPage</text>
+<rect x="1015" y="146" width="217" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="1031" y="170" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">locators/</text>
+<text x="1031" y="194" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Locators</text>
+<text x="1031" y="219" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">@FindBy + PageFactory</text>
+<text x="1031" y="238" font-family="Menlo,Consolas,monospace" font-size="12.5" xml:space="preserve"><tspan fill="#F4F7F5">shadow DOM:</tspan></text>
+<text x="1031" y="257" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">getShadowRoot()</text>
+<path d="M267 221.0 L287 221.0" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<path d="M509 221.0 L529 221.0" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<path d="M751 221.0 L771 221.0" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<path d="M993 221.0 L1012 221.0" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<rect x="48" y="320" width="459" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="64" y="344" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">target/</text>
+<text x="64" y="368" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Cucumber reports</text>
+<text x="64" y="393" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">pretty console</text>
+<text x="64" y="412" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">cucumber-reports/report.html</text>
+<text x="64" y="431" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">cucumber.json · cucumber-reports/cucumber.xml</text>
+<text x="64" y="450" font-family="Menlo,Consolas,monospace" font-size="12.5" xml:space="preserve"><tspan fill="#F4F7F5">mvn verify → cucumber-html-reports/</tspan></text>
+<rect x="532" y="320" width="217" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="548" y="344" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">hooks/</text>
+<text x="548" y="368" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Context</text>
+<text x="548" y="393" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">PicoContainer DI</text>
+<text x="548" y="412" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">shared by step classes</text>
+<text x="548" y="431" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">extends BasesClassDriver</text>
+<rect x="774" y="320" width="217" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="790" y="344" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">drivers/</text>
+<text x="790" y="368" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Driver layer</text>
+<text x="790" y="393" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">-Denvironment=qa</text>
+<text x="790" y="412" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">BASE_URL overrides</text>
+<text x="790" y="431" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">-Dbrowser=chrome</text>
+<text x="790" y="450" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">HEADLESS=true opt.</text>
+<rect x="1015" y="320" width="217" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+<text x="1031" y="344" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="normal" fill="#8FA6B0" text-anchor="start" letter-spacing="0.5" xml:space="preserve">app under test</text>
+<text x="1031" y="368" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#F4F7F5" text-anchor="start" xml:space="preserve">Staging web app</text>
+<text x="1031" y="393" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">custom web</text>
+<text x="1031" y="412" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">components</text>
+<text x="1031" y="431" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" fill="#ABC0C8" text-anchor="start" xml:space="preserve">(shadow DOM)</text>
+<path d="M398.5 298 L398.5 317" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<path d="M640.5 298 L640.5 317" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<path d="M751 395.0 L771 395.0" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<path d="M993 395.0 L1012 395.0" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<path d="M1123.5 298 L1123.5 317" fill="none" stroke="#55DFBD" stroke-width="2" marker-end="url(#am)"/>
+<text x="48" y="498" font-family="Menlo,Consolas,monospace" font-size="12.5" font-weight="normal" xml:space="preserve"><tspan fill="#FFC56E" font-weight="bold">!</tspan><tspan fill="#ABC0C8"> No CI workflow: it targets a private staging app, so BASE_URL, APP_USERNAME and APP_PASSWORD are injected at runtime.</tspan></text>
+<text x="1232" y="518" font-family="Menlo,Consolas,monospace" font-size="13" font-weight="normal" fill="#55DFBD" text-anchor="end" xml:space="preserve">Cristian Guerra · QA · Medellín</text>
+</svg>

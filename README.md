@@ -1,3 +1,9 @@
+[Leer en español](README.es.md)
+
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="selenium-cucumber-pom: web UI framework for a shadow-DOM accounting app with BDD features, Page Objects with central locators and Cucumber reports" width="100%">
+</p>
+
 # Selenium Cucumber POM
 
 Web UI automation framework in Java 17 combining Selenium WebDriver 4, Cucumber 7 (BDD) and the Page Object Model, with centralised locators, shadow DOM handling and Cucumber HTML reports.
@@ -6,6 +12,24 @@ Web UI automation framework in Java 17 combining Selenium WebDriver 4, Cucumber 
 ![Selenium](https://img.shields.io/badge/Selenium-4.29-43B02A?logo=selenium&logoColor=white)
 ![Cucumber](https://img.shields.io/badge/Cucumber-7-23D96C?logo=cucumber&logoColor=white)
 ![Maven](https://img.shields.io/badge/Maven-3.x-C71A36?logo=apachemaven&logoColor=white)
+
+## How it works
+
+<p align="center">
+  <img src="docs/assets/how-it-works.svg" alt="Feature files run through Cucumber runners into step definitions that share a PicoContainer context; the step definitions call Page Objects whose locators reach into the shadow DOM of the staging app, while the driver layer resolves environment and browser and the runners write Cucumber reports" width="100%">
+</p>
+
+1. `RunnerLogin` and `RunnerRegister` run one feature each through Cucumber with the `pretty`, HTML, JSON and JUnit plugins.
+2. The step definitions receive a shared `Context` from PicoContainer; `Context` extends `BasesClassDriver`, which resolves the URL (`-Denvironment=qa` in `config.properties`, overridable with `BASE_URL`) and starts Chrome.
+3. The steps call Page Objects (`LoginPage`, `HomePage`, `CreateCostumerPage`); the locators live in `locators/` as `@FindBy` fields initialised with `PageFactory`.
+4. For the app's custom web components, the Page Objects go through `getShadowRoot()` to reach inputs, dropdowns and buttons.
+5. In `Register.feature` the last two steps still throw `PendingException`.
+
+<p align="center">
+  <img src="docs/assets/how-it-works.gif" alt="Animation: each Gherkin step of Login.feature and Register.feature is mapped to the code it calls, ending with the two pending Register steps and the aggregated Cucumber report" width="960">
+</p>
+
+The animation walks the code path of both features step by step (also as [MP4](docs/assets/how-it-works.mp4)). It is not a recording of a run: there is no CI workflow, so no run results are published in this repository.
 
 ## What it tests
 
@@ -50,6 +74,9 @@ mvn clean verify                            # tests + aggregated HTML report
 .
 ├── .env.example
 ├── config.properties
+├── docs/
+│   ├── assets/        banner.svg, how-it-works.svg, how-it-works.gif, how-it-works.mp4
+│   └── scenes/        how-it-works.html + export.sh (rebuild the animation)
 ├── pom.xml
 └── src/
     ├── main/java/
@@ -74,6 +101,17 @@ mvn clean verify                            # tests + aggregated HTML report
 ## CI
 
 No workflow is configured: the suite targets a private staging environment that needs credentials and a browser, so it runs locally or from a pipeline that injects `BASE_URL`, `APP_USERNAME` and `APP_PASSWORD` as secrets.
+
+## Limits
+
+- `Register.feature` is not finished: its last two steps are `PendingException` placeholders.
+- Only Chrome is wired in `BasesClassDriver`; any other `-Dbrowser` value throws `Unsupported browser`.
+- Some steps use fixed pauses (`Waits.waitFor`) besides explicit waits.
+- The application under test is private, so the suite cannot run without access to that staging environment.
+
+## Rebuilding the animation
+
+`docs/scenes/how-it-works.html` draws each frame from `?t=<seconds>`; `docs/scenes/export.sh` captures the frames with headless Chrome and encodes `how-it-works.gif` and `how-it-works.mp4` with ffmpeg.
 
 ---
 
