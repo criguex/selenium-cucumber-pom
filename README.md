@@ -4,6 +4,34 @@
   <img src="docs/assets/banner.svg" alt="selenium-cucumber-pom: web UI framework for a shadow-DOM accounting app with BDD features, Page Objects with central locators and Cucumber reports" width="100%">
 </p>
 
+## Explained like you're 8
+
+Imagine a recipe book. Each recipe says in plain words what to do: "open the login page, type your name, check that your name appears". A cook reads each step and does it in the kitchen. In this project the recipes are the feature files, the cook is the Java code, and the kitchen is a web app for accounting. Some of that app's buttons are hidden inside closed boxes (called shadow DOM), so the cook knows a special trick to open them.
+
+### A real example
+
+- **Imagine that:** the recipe "log in" opens the app, types the username and password, and looks at the home page.
+- **What should happen:** after logging in, the home page shows the user's name.
+- **What the project does:** `LoginPage` types the credentials and `HomePage` checks the name.
+- **What we gain:** if logging in broke, the recipe would stop at that step. The second recipe (creating a customer) is only half written: its last two steps are still marked "pending".
+
+<p align="center">
+  <img src="docs/assets/explained.gif" alt="Illustrated story: a recipe in plain words, a cook that follows each step, buttons hidden in closed boxes that getShadowRoot opens, a labeled drawer for every button, and a second recipe with two steps still to write" width="960">
+</p>
+
+The same animation as [MP4](docs/assets/explained.mp4).
+
+### Hard words
+
+| Word | What it means |
+|---|---|
+| Selenium | A tool that lets code drive a real web browser |
+| Cucumber | The tool that reads plain-English recipes and runs the matching code |
+| Page Object | A cheat sheet for one page: where each button is, so the steps don't have to remember |
+| Locator | The address of a button or a box on the page |
+| Shadow DOM | A closed box inside a page that hides its own buttons |
+| Pending | A step that is written down but not programmed yet |
+
 # Selenium Cucumber POM
 
 Web UI automation framework in Java 17 combining Selenium WebDriver 4, Cucumber 7 (BDD) and the Page Object Model, with centralised locators, shadow DOM handling and Cucumber HTML reports.
@@ -75,8 +103,8 @@ mvn clean verify                            # tests + aggregated HTML report
 ├── .env.example
 ├── config.properties
 ├── docs/
-│   ├── assets/        banner.svg, how-it-works.svg, how-it-works.gif, how-it-works.mp4
-│   └── scenes/        how-it-works.html + export.sh (rebuild the animation)
+│   ├── assets/        banner.svg, how-it-works.*, explained.* (kids' animation, EN + .es)
+│   └── scenes/        how-it-works.html, explained.html + their export scripts
 ├── pom.xml
 └── src/
     ├── main/java/
@@ -111,7 +139,7 @@ No workflow is configured: the suite targets a private staging environment that 
 
 ## Rebuilding the animation
 
-`docs/scenes/how-it-works.html` draws each frame from `?t=<seconds>`; `docs/scenes/export.sh` captures the frames with headless Chrome and encodes `how-it-works.gif` and `how-it-works.mp4` with ffmpeg.
+`docs/scenes/how-it-works.html` draws each frame from `?t=<seconds>`; `docs/scenes/export.sh` captures the frames with headless Chrome and encodes `how-it-works.gif` and `how-it-works.mp4` with ffmpeg. `docs/scenes/explained.html` (`?t=<seconds>&lang=en|es`) and `docs/scenes/export-explained.sh` do the same for the kids' animation.
 
 ---
 

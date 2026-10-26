@@ -4,6 +4,34 @@
   <img src="docs/assets/banner.svg" alt="selenium-cucumber-pom: framework de interfaz web para una app contable con shadow DOM, con features BDD, Page Objects con localizadores centralizados y reportes de Cucumber" width="100%">
 </p>
 
+## Explicado para un niño de 8 años
+
+Imagina un libro de recetas. Cada receta dice en palabras sencillas qué hacer: "abre la página de entrada, escribe tu nombre, revisa que tu nombre aparezca". Un cocinero lee cada paso y lo hace en la cocina. En este proyecto las recetas son los feature files, el cocinero es el código en Java y la cocina es una aplicación web de contabilidad. Algunos botones de esa aplicación están escondidos dentro de cajas cerradas (se llaman shadow DOM), así que el cocinero se sabe un truco especial para abrirlas.
+
+### Un ejemplo real
+
+- **Imagina que:** la receta "iniciar sesión" abre la aplicación, escribe el usuario y la clave, y mira la página de inicio.
+- **Qué debería pasar:** después de entrar, la página de inicio muestra el nombre del usuario.
+- **Qué hace el proyecto:** `LoginPage` escribe las credenciales y `HomePage` revisa el nombre.
+- **Qué ganamos:** si iniciar sesión se dañara, la receta se detendría en ese paso. La segunda receta (crear un cliente) está escrita a medias: sus dos últimos pasos siguen marcados como "pendientes".
+
+<p align="center">
+  <img src="docs/assets/explained.es.gif" alt="Historia ilustrada: una receta en palabras sencillas, un cocinero que sigue cada paso, botones escondidos en cajas cerradas que getShadowRoot abre, un cajón con etiqueta para cada botón y una segunda receta con dos pasos por escribir" width="960">
+</p>
+
+La misma animación en [MP4](docs/assets/explained.es.mp4).
+
+### Palabras difíciles
+
+| Palabra | Qué quiere decir |
+|---|---|
+| Selenium | Una herramienta que deja que el código maneje un navegador de verdad |
+| Cucumber | La herramienta que lee las recetas en inglés sencillo y corre el código que les corresponde |
+| Page Object | Una chuleta de una página: dónde está cada botón, para que los pasos no tengan que acordarse |
+| Localizador | La dirección de un botón o de una casilla en la página |
+| Shadow DOM | Una caja cerrada dentro de una página que esconde sus propios botones |
+| Pendiente (pending) | Un paso que está escrito pero todavía no está programado |
+
 # Selenium Cucumber POM
 
 Framework de automatización de interfaz web en Java 17 que combina Selenium WebDriver 4, Cucumber 7 (BDD) y el Page Object Model, con localizadores centralizados, manejo de shadow DOM y reportes HTML de Cucumber.
@@ -75,8 +103,8 @@ mvn clean verify                            # pruebas + reporte HTML consolidado
 ├── .env.example
 ├── config.properties
 ├── docs/
-│   ├── assets/        banner.svg, how-it-works.svg, how-it-works.gif, how-it-works.mp4
-│   └── scenes/        how-it-works.html + export.sh (regenera la animación)
+│   ├── assets/        banner.svg, how-it-works.*, explained.* (animación para niños, EN + .es)
+│   └── scenes/        how-it-works.html, explained.html + sus scripts de export
 ├── pom.xml
 └── src/
     ├── main/java/
@@ -111,7 +139,7 @@ No hay workflow configurado: la suite apunta a un ambiente privado de staging qu
 
 ## Regenerar la animación
 
-`docs/scenes/how-it-works.html` dibuja cada cuadro a partir de `?t=<segundos>`; `docs/scenes/export.sh` captura los cuadros con Chrome headless y arma `how-it-works.gif` y `how-it-works.mp4` con ffmpeg.
+`docs/scenes/how-it-works.html` dibuja cada cuadro a partir de `?t=<segundos>`; `docs/scenes/export.sh` captura los cuadros con Chrome headless y arma `how-it-works.gif` y `how-it-works.mp4` con ffmpeg. `docs/scenes/explained.html` (`?t=<segundos>&lang=en|es`) y `docs/scenes/export-explained.sh` hacen lo mismo con la animación para niños.
 
 ---
 
