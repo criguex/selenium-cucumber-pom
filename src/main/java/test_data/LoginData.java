@@ -1,8 +1,13 @@
 package test_data;
 
 public class LoginData {
-    public final static String USERNAME = required("APP_USERNAME");
-    public final static String PASSWORD = required("APP_PASSWORD");
+    public static String USERNAME;
+    public static String PASSWORD;
+
+    public static void load() {
+        USERNAME = required("APP_USERNAME");
+        PASSWORD = required("APP_PASSWORD");
+    }
 
     private static String required(String key) {
         String value = System.getenv(key);

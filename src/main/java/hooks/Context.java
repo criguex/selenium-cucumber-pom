@@ -9,6 +9,7 @@ public class Context extends BasesClassDriver {
     LoginPage loginPage;
 
     public Context() {
+        LoginData.load();
         setup();
     }
 

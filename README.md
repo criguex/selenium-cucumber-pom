@@ -12,7 +12,7 @@ Imagine a recipe book. Each recipe says in plain words what to do: "open the log
 
 - **Imagine that:** the recipe "log in" opens the app, types the username and password, and looks at the home page.
 - **What should happen:** after logging in, the home page shows the user's name.
-- **What the project does:** `LoginPage` types the credentials and `HomePage` checks the name.
+- **What the project does:** `LoginPage` types the credentials and `HomePage` checks that the welcome panel is shown.
 - **What we gain:** if logging in broke, the recipe would stop at that step. The second recipe (creating a customer) is only half written: its last two steps are still marked "pending".
 
 <p align="center">
@@ -65,7 +65,7 @@ Written against the staging environment of a cloud accounting web application bu
 
 | Feature | Scenario | Status |
 |---|---|---|
-| `Login.feature` | User logs in with valid credentials and lands on the home page (user name is verified) | Implemented |
+| `Login.feature` | User logs in with valid credentials and lands on the home page (the welcome panel is checked, not the user name) | Implemented |
 | `Register.feature` | From the home page open "Create > Customer" and fill in basic data and contact information; submit the form and check the success message | Partially implemented: the last two steps are `PendingException` placeholders |
 
 ## Architecture
@@ -80,7 +80,7 @@ Written against the staging environment of a cloud accounting web application bu
 
 Requires JDK 17, Maven 3.x and Google Chrome (the driver is resolved by Selenium Manager).
 
-Configuration comes from environment variables (see `.env.example`): `BASE_URL`, `APP_USERNAME`, `APP_PASSWORD` and the optional `HEADLESS`. The suite fails fast with a clear message if credentials are missing.
+Configuration comes from environment variables (see `.env.example`): `BASE_URL`, `APP_USERNAME`, `APP_PASSWORD` and the optional `HEADLESS`. If credentials are missing, the suite stops with a clear message before opening Chrome.
 
 ```bash
 git clone https://github.com/criguex/selenium-cucumber-pom.git

@@ -12,7 +12,7 @@ Imagina un libro de recetas. Cada receta dice en palabras sencillas qué hacer: 
 
 - **Imagina que:** la receta "iniciar sesión" abre la aplicación, escribe el usuario y la clave, y mira la página de inicio.
 - **Qué debería pasar:** después de entrar, la página de inicio muestra el nombre del usuario.
-- **Qué hace el proyecto:** `LoginPage` escribe las credenciales y `HomePage` revisa el nombre.
+- **Qué hace el proyecto:** `LoginPage` escribe las credenciales y `HomePage` revisa que se vea el panel de bienvenida.
 - **Qué ganamos:** si iniciar sesión se dañara, la receta se detendría en ese paso. La segunda receta (crear un cliente) está escrita a medias: sus dos últimos pasos siguen marcados como "pendientes".
 
 <p align="center">
@@ -65,7 +65,7 @@ Escrito contra el ambiente de staging de una aplicación web de contabilidad en 
 
 | Feature | Escenario | Estado |
 |---|---|---|
-| `Login.feature` | El usuario inicia sesión con credenciales válidas y llega al inicio (se verifica el nombre de usuario) | Implementado |
+| `Login.feature` | El usuario inicia sesión con credenciales válidas y llega al inicio (se revisa el panel de bienvenida, no el nombre de usuario) | Implementado |
 | `Register.feature` | Desde el inicio se abre "Create > Customer" y se llenan los datos básicos y de contacto; se envía el formulario y se revisa el mensaje de éxito | Parcial: los dos últimos pasos son `PendingException` |
 
 ## Arquitectura
@@ -80,7 +80,7 @@ Escrito contra el ambiente de staging de una aplicación web de contabilidad en 
 
 Requiere JDK 17, Maven 3.x y Google Chrome (Selenium Manager resuelve el driver).
 
-La configuración sale de variables de entorno (vea `.env.example`): `BASE_URL`, `APP_USERNAME`, `APP_PASSWORD` y la opcional `HEADLESS`. Si faltan las credenciales, la suite se detiene enseguida con un mensaje claro.
+La configuración sale de variables de entorno (vea `.env.example`): `BASE_URL`, `APP_USERNAME`, `APP_PASSWORD` y la opcional `HEADLESS`. Si faltan las credenciales, la suite se detiene con un mensaje claro antes de abrir Chrome.
 
 ```bash
 git clone https://github.com/criguex/selenium-cucumber-pom.git
